@@ -10,10 +10,10 @@
 		west
 	};
 class Exit{
-private: 
-	char name;
-	char description;
 public:
+	
+	char description[200];
+
 	Room* origin;
 	Room* destiny;
 	bool open= true;

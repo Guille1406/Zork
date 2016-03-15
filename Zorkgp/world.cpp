@@ -3,20 +3,25 @@
 #include "Exits.h"
 #include "world.h"
 #include <string.h>
-
+#include "Character.h"
+#define NUM_ROOMS 13
+#define NUM_EXITS 23
 using namespace std;
 World::World(){
-	room = new Room[13];
-	exit = new Exit[23];
+	room = new Room[NUM_ROOMS];
+	exit = new Exit[NUM_EXITS];  
+	character = new Character;
+	character->pos = room + 0;
 }
 void World::Createworld(){
 	
 	//Rooms
 	
 	const char *names[] = { "West Garden", "Entrance of the castle", "East Garden", "Mail room", "Throne room", "Kitchen", "Royal Army", "Army", "Dungeon", "Kings room", "Hall", "Johns room", "Carls room" };
-	for (int i = 0; i < 13; i++){
+	for (int i = 0; i < NUM_ROOMS; i++){
 		strcpy_s(room[i].name, names[i]);
 	}
+	
 
 	const char *desc[] = { "A delicate garden full of roses for the queen, castle can be contemplated in all its glory",
 		"A Giant Portal with many soldiers armed, in the distance you can see the Throne",
@@ -32,9 +37,12 @@ void World::Createworld(){
 		" the room of your uncle cool",
 		" the room of your uncle carls, the bored"
 	};
-	for (int i = 0; i < 13; i++){
+	for (int i = 0; i < NUM_ROOMS; i++){
 		strcpy_s(room[i].description,desc[i]);
 	}
+
+
+
 	//exits;
 	
 	//exit 0 from West Garden to Entrance of the caste;
@@ -143,16 +151,17 @@ void World::Createworld(){
 
 }
 
-void World::MoveCharacter(){
-	Help();
-	char sentence[20];
+void World::MoveCharacter(char* sentence){
+	
 	char opera1[10]; 
 	char opera2[10];
 	char* Counter;
-	gets_s(sentence,20);
-	opera1 = strtok_s(sentence, " ", &Counter);
+
+	
+	
 }
 
 void World::Help(){
 	cout << " To move around the world you can use (n) to north, (s) to South, (e) to East and (w) to West,/n also you can type the word; type 'look' to look around the room or the exits/n to see this message again type 'help'" << endl;
+	cout << "“The day is approaching, soon we will purified our lands and get honor to my/n father, I can’t accept one more day the fact of my nephew is a Pevensies.Live long to the marfil crown.”" << endl;
 }

@@ -4,12 +4,8 @@
 #include "rooms.h"
 
 class Character{
-
-	char name[30];
-	char description[200];
-
 public:
-	Room* Actualroom;
+	Room* pos;
 
 	Character();
 	~Character();

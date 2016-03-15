@@ -4,6 +4,7 @@
 #include <iostream>
 #include "rooms.h"
 #include "Exits.h"
+#include "Character.h"
 
 
 
@@ -12,9 +13,9 @@ class World {
 public:
 	Room* room ;
 	Exit* exit ;
-
+	Character* character;
 	void Createworld();
-	void MoveCharacter();
+	void MoveCharacter(char sentence[]);
 
 	World();
 
