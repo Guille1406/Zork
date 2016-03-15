@@ -1,6 +1,5 @@
 #ifndef _WORLD
 #define _WORLD
-#define NUM_ROOMS  13;
 #include <iostream>
 #include "rooms.h"
 #include "Exits.h"
@@ -16,11 +15,12 @@ public:
 	Character* character;
 	void Createworld();
 	void MoveCharacter(char sentence[]);
-
+	void readSentence(char opera1[], char opera2[]);
+	int readDirection(char opera1[]);
 	World();
 
-	void Go();
-	void Look();
+	void Go(char opera1[]);
+	void Look(char opera1[]);
 	void Help();
 	
 };
