@@ -292,7 +292,7 @@ void World::readSentence(char* opera1){//to read the sentence typed by the user 
 
 
 void World::Help(){
-	printf(" To move around the world you can use (n) to north,\n (s) to South, (e) to East and (w) to West,/n also you can type the word \nor type go first; type 'look' following of a direction to look \naround the room or the exits.You can also open and close doors with the coomand \n'open' or 'close' following by the direction, to quit the game \npress 'quit' or 'q' to see this message again type 'help'\n\n");
+	printf(" To move around the world you can use (n) to north,\n (s) to South, (e) to East and (w) to West,\n also you can type the word \nor type go first; type 'look' following of a direction to look \naround the room or the exits.You can also open and close doors with the coomand \n'open' or 'close' following by the direction, to quit the game \npress 'quit' or 'q' to see this message again type 'help'\n\n");
 	printf("“The day is approaching, soon we will purified our \nlands and get honor to my father, I can’t\n accept one more day the fact of my nephew is a \nPevensies.Live long to the marfil crown.”  You are a prince, and one of yor uncles wants \nto kill your parents, you need to find who is the bad one");
 }
 
