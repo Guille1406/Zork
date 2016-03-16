@@ -5,8 +5,8 @@
 #include "world.h"
 #include <string.h>
 #include "Character.h"
-#define NUM_ROOMS 13
-#define NUM_EXITS 23
+#define NUM_ROOMS 13 //number of rooms created
+#define NUM_EXITS 23 //number of exit created
 
 World::World(){
 	room = new Room[NUM_ROOMS];
@@ -14,16 +14,26 @@ World::World(){
 	character = new Character;
 	character->pos = room + 0;
 }
+
+World::~World(){
+	delete character;
+	delete[]exit;
+	delete[]room;
+
+
+}
+
 void World::Createworld(){
 	
 	//Rooms
 	
+	// this 'for' is for introduce the name of the room into the room;
 	const char *names[] = { "West Garden", "Entrance of the castle", "East Garden", "Mail room", "Throne room", "Kitchen", "Royal Army", "Army", "Dungeon", "Kings room", "Hall", "Johns room", "Carls room" };
 	for (int i = 0; i < NUM_ROOMS; i++){
 		strcpy_s(room[i].name, names[i]);
 	}
 	
-
+	// this 'for' is for introduce the description of the room into the room;
 	const char *desc[] = { "A delicate garden full of roses for the queen, castle can be contemplated in all its glory",
 		"A Giant Portal with many soldiers armed, in the distance you can see the Throne",
 		" A garden with Tall trees, the Queen has her pets around here",
@@ -215,6 +225,10 @@ void World::readSentence(char* opera1){//to read the sentence typed by the user 
 		Go(west);
 		return;
 	}
+	if (strcmp(opera1, "look") == 0 || strcmp(opera1, "l") == 0){
+		lookroom();
+		return;
+	}
 	if (strcmp(opera1, "look north") == 0 || strcmp(opera1, "l n") == 0){
 		Look(north);
 		return;
@@ -263,6 +277,11 @@ void World::readSentence(char* opera1){//to read the sentence typed by the user 
 		Open(east);
 		return;
 	}
+	if (strcmp(opera1, "help") == 0 || strcmp(opera1, "h") == 0){
+		Help();
+		return;
+	}
+
 }
 	
 
@@ -270,62 +289,13 @@ void World::readSentence(char* opera1){//to read the sentence typed by the user 
 
 
 	
-
-
-void World::Look(dir opera1){// to look through the exits selected;
-	for (int i = 0; i < NUM_EXITS; i++){
-		if (exit[i].origin == character->pos){
-			if (exit[i].mydirection == opera1){
-				puts( exit[i].description);
-				if (exit[i].open == false){
-					printf("but this door is closed");
-				}
-			
-			}
-		}
-	}
-}
-
-void World::Open(dir opera1){// to open doors;
-	for (int i = 0; i < NUM_EXITS; i++){
-		if (exit[i].origin == character->pos){
-			if (exit[i].mydirection == opera1){
-				if (exit[i].door = true){
-					if (exit[i].open == false){
-						exit[i].open = true;
-						printf("You have open de door ,yei");
-					}
-				}
-			}
-		}
-	}
-}
-
-void World::Close(dir opera1){ //to close doors;
-	for (int i = 0; i < NUM_EXITS; i++){
-		if (exit[i].origin == character->pos){
-			if (exit[i].mydirection == opera1){
-				
-				if (exit[i].door = false){
-					printf("there is not doors in this place");
-				break;
-			}
-			else if (exit[i].door = true){
-					if (exit[i].open == true){
-						exit[i].open = false;
-						printf("You have close de door, woho");
-					}
-				}
-
-					
-			}
-		}
-	}
-}
 
 
 void World::Help(){
-	printf(" To move around the world you can use (n) to north, (s) to South, (e) to East and (w) to West,/n also you can type the word; type 'look' to look around the room or the exits/n to see this message again type 'help'" );
-	printf("“The day is approaching, soon we will purified our lands and get honor to my/n father, I can’t accept one more day the fact of my nephew is a Pevensies.Live long to the marfil crown.”");
+	printf(" To move around the world you can use (n) to north,\n (s) to South, (e) to East and (w) to West,/n also you can type the word \nor type go first; type 'look' following of a direction to look \naround the room or the exits.You can also open and close doors with the coomand \n'open' or 'close' following by the direction, to quit the game \npress 'quit' or 'q' to see this message again type 'help'\n\n");
+	printf("“The day is approaching, soon we will purified our \nlands and get honor to my father, I can’t\n accept one more day the fact of my nephew is a \nPevensies.Live long to the marfil crown.”  You are a prince, and one of yor uncles wants \nto kill your parents, you need to find who is the bad one");
 }
+
+
+
 

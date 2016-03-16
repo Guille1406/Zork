@@ -17,13 +17,16 @@ public:
 	
 	void readSentence(char opera[]);
 	World();
+	~World();
 
 	void Go(dir opera);
 	void Look(dir opera);
 	void Help();
+	void lookroom();
 	void Close(dir opera);
 	void Open(dir opera);
-	
+	bool quit();
+
 };
 
-#endif
+#endif //_WORLD

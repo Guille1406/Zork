@@ -4,7 +4,7 @@
 #include "Character.h"
 #include "world.h"
 #define NUM_EXITS 23
-using namespace std;
+
 
 Character::Character(){
 
@@ -41,6 +41,61 @@ void World::Go(dir opera1){// to move the character.
 	}
 
 	if (flags1 == true) {
-		cout << "You cant go there" << endl;
+		printf( "You cant go there");
+	}
+}
+
+void World::lookroom(){
+	printf("%s", character->pos->description);
+}
+
+void World::Look(dir opera1){// to look through the exits selected;
+	for (int i = 0; i < NUM_EXITS; i++){
+		if (exit[i].origin == character->pos){
+			if (exit[i].mydirection == opera1){
+				puts(exit[i].description);
+				if (exit[i].open == false){
+					printf("but this door is closed");
+				}
+
+			}
+		}
+	}
+}
+
+void World::Open(dir opera1){// to open doors;
+	for (int i = 0; i < NUM_EXITS; i++){
+		if (exit[i].origin == character->pos){
+			if (exit[i].mydirection == opera1){
+				if (exit[i].door == true){
+					if (exit[i].open == false){
+						exit[i].open == true;
+						printf("You have open de door ,yei");
+					}
+				}
+			}
+		}
+	}
+}
+
+void World::Close(dir opera1){ //to close doors;
+	for (int i = 0; i < NUM_EXITS; i++){
+		if (exit[i].origin == character->pos){
+			if (exit[i].mydirection == opera1){
+
+				if (exit[i].door == false){
+					printf("there is not doors in this place");
+					break;
+				}
+				else if (exit[i].door == true){
+					if (exit[i].open == true){
+						exit[i].open = false;
+						printf("You have close de door, woho");
+					}
+				}
+
+
+			}
+		}
 	}
 }

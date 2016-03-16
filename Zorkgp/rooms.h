@@ -1,4 +1,4 @@
-                                                                                                          #ifndef _ROOMS
+#ifndef _ROOMS
 #define _ROOMS
 #include <iostream>
 
@@ -13,4 +13,4 @@ public:
 	~Room();
 };
 
-#endif
+#endif //_ROOMS
