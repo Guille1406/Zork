@@ -6,7 +6,7 @@
 class Character{
 public:
 	Room* pos;
-
+	
 	Character();
 	~Character();
 };

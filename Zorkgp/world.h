@@ -14,14 +14,15 @@ public:
 	Exit* exit ;
 	Character* character;
 	void Createworld();
-	void MoveCharacter(char sentence[]);
-	void readSentence(char opera1[], char opera2[]);
-	int readDirection(char opera1[]);
+	
+	void readSentence(char opera[]);
 	World();
 
-	void Go(char opera1[]);
-	void Look(char opera1[]);
+	void Go(dir opera);
+	void Look(dir opera);
 	void Help();
+	void Close(dir opera);
+	void Open(dir opera);
 	
 };
 

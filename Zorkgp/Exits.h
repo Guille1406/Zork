@@ -17,6 +17,7 @@ public:
 	Room* origin;
 	Room* destiny;
 	bool open= true;
+	bool door = false;
 	dir mydirection;
 
 	Exit();
