@@ -69,7 +69,7 @@ void World::Open(dir opera1){// to open doors;
 			if (exit[i].mydirection == opera1){
 				if (exit[i].door == true){
 					if (exit[i].open == false){
-						exit[i].open == true;
+						exit[i].open = true;
 						printf("You have open de door ,yei");
 					}
 				}
