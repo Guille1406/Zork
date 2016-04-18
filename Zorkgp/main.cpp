@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdio.h>
-#include "world.h"
+#include "worlds.h"
 
 
 int main(){
@@ -14,7 +14,7 @@ int main(){
 	do{
 		gets_s(sentence, 20);
 		My_world.readSentence(sentence);
-	} while(strcmp(sentence,"quit")!=0);
+	} while((sentence=="quit")!=0);
 
 	printf("\n\nThanks for play my ZORK, see you soon");
 	getchar();
